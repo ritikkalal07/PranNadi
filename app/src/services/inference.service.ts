@@ -4,7 +4,7 @@
  * Nothing outside this service knows that two models exist.
  */
 
-import * as FileSystem from 'expo-file-system/legacy';
+import { File, Directory, Paths } from 'expo-file-system';
 import { preprocessImage } from '../ml/preprocess';
 import { useDiseaseClassifier } from '../ml/useDiseaseClassifier';
 import { getRemedyForDisease } from './remedy.service';
@@ -15,11 +15,13 @@ import remediesEn from '../data/remedies/remedies.en.json';
 /** Copy captured image to a persistent local path and return new URI */
 async function persistImage(tempUri: string): Promise<string> {
   const fileName = `scan_${Date.now()}.jpg`;
-  const destDir = `${FileSystem.documentDirectory}scans/`;
-  await FileSystem.makeDirectoryAsync(destDir, { intermediates: true });
-  const destUri = `${destDir}${fileName}`;
-  await FileSystem.copyAsync({ from: tempUri, to: destUri });
-  return destUri;
+  const destDir = new Directory(Paths.document, 'scans');
+  destDir.create({ intermediates: true, idempotent: true });
+  
+  const destFile = new File(destDir, fileName);
+  new File(tempUri).copy(destFile);
+  
+  return destFile.uri;
 }
 
 /**

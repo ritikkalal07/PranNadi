@@ -3,7 +3,7 @@
  * Owns the image file lifecycle: copies to persistent directory, deletes on scan delete.
  */
 
-import * as FileSystem from 'expo-file-system/legacy';
+import { File } from 'expo-file-system';
 import { getDatabase } from '../data/db/seed';
 import type { ScanRecord, HistoryFilter } from '../data/types';
 
@@ -109,7 +109,7 @@ export async function deleteScan(id: string): Promise<void> {
 
   if (row?.image_uri) {
     try {
-      await FileSystem.deleteAsync(row.image_uri, { idempotent: true });
+      new File(row.image_uri).delete();
     } catch {
       // File may already be gone — not a fatal error
     }

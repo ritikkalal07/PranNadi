@@ -2,13 +2,12 @@
  * Image utility helpers.
  */
 
-import * as FileSystem from 'expo-file-system/legacy';
+import { File } from 'expo-file-system';
 
 /** Check if a local file URI still exists */
 export async function fileExists(uri: string): Promise<boolean> {
   try {
-    const info = await FileSystem.getInfoAsync(uri);
-    return info.exists;
+    return new File(uri).exists;
   } catch {
     return false;
   }
