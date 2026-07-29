@@ -1,0 +1,13 @@
+{
+  "0": "tomato_early_blight",
+  "1": "tomato_late_blight",
+  "2": "rice_blast",
+  "3": "wheat_stem_rust",
+  "4": "maize_northern_leaf_blight",
+  "5": "cotton_leaf_curl",
+  "6": "potato_late_blight",
+  "7": "chilli_anthracnose",
+  "8": "groundnut_early_leaf_spot",
+  "9": "sugarcane_red_rot",
+  "10": "not_a_plant"
+}

@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "PranNadi",
+    "slug": "prannadi",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2F6E4E"
+    },
+    "newArchEnabled": true,
+    "scheme": "prannadi",
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2F6E4E"
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.BLUETOOTH_ADVERTISE"
+      ],
+      "package": "com.prannadi.app"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.prannadi.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "PranNadi needs camera access to photograph crop leaves for disease diagnosis.",
+        "NSPhotoLibraryUsageDescription": "PranNadi can import photos from your gallery for disease diagnosis.",
+        "NSLocationWhenInUseUsageDescription": "PranNadi uses your location for satellite field monitoring and coarse outbreak location sharing.",
+        "NSBluetoothAlwaysUsageDescription": "PranNadi uses Bluetooth to share disease outbreak alerts with nearby farmers.",
+        "NSSpeechRecognitionUsageDescription": "PranNadi reads diagnosis results aloud in your language."
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-camera",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "PranNadi can import photos from your gallery for disease diagnosis."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

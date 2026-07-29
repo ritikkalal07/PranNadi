@@ -1,0 +1,124 @@
+{
+  "tabs": {
+    "scan": "स्कैन",
+    "history": "इतिहास",
+    "remedies": "उपचार",
+    "settings": "सेटिंग्स"
+  },
+  "scan": {
+    "title": "फसल स्कैन करें",
+    "subtitle": "रोगग्रस्त पत्ती पर कैमरा करें और कैप्चर करें",
+    "capture": "कैप्चर",
+    "gallery": "गैलरी",
+    "analyzing": "विश्लेषण हो रहा है…",
+    "noPlant": "कोई पौधा नहीं मिला",
+    "noPlantSub": "कृपया फसल की पत्ती स्पष्ट रूप से फोटो लें"
+  },
+  "result": {
+    "title": "निदान",
+    "confidence": "विश्वसनीयता",
+    "severity": "गंभीरता",
+    "whyThis": "यह निदान क्यों",
+    "remedy": "उपचार देखें",
+    "disclaimer": "महँगे उपचार से पहले अपने स्थानीय कृषि अधिकारी से सलाह लें।",
+    "modelUsed": "उपयोग किया मॉडल",
+    "scanAgain": "फिर स्कैन करें",
+    "listen": "सुनें"
+  },
+  "remedy": {
+    "symptoms": "लक्षण",
+    "steps": "उपचार के चरण",
+    "prevention": "निवारक उपाय",
+    "severity": "अनुपचारित रहने पर गंभीरता"
+  },
+  "history": {
+    "title": "स्कैन इतिहास",
+    "empty": "अभी तक कोई स्कैन नहीं",
+    "emptySub": "निदान शुरू करने के लिए फोटो लें",
+    "search": "बीमारियाँ खोजें…",
+    "filter": "फ़िल्टर",
+    "allCrops": "सभी फसलें",
+    "allSeverity": "सभी गंभीरता"
+  },
+  "remedies": {
+    "title": "उपचार पुस्तकालय",
+    "search": "बीमारी या फसल खोजें…",
+    "allCrops": "सभी फसलें"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "language": "भाषा",
+    "modelInfo": "मॉडल जानकारी",
+    "modelVersion": "मॉडल संस्करण",
+    "dataVersion": "डेटा संस्करण",
+    "communitySync": "सामुदायिक सिंक",
+    "communitySyncSub": "मॉडल सुधार के लिए अनाम स्कैन साझा करें",
+    "fieldLocation": "खेत का स्थान",
+    "fieldLocationSub": "उपग्रह खेत निगरानी के लिए उपयोग",
+    "setLocation": "स्थान सेट करें",
+    "about": "परिचय",
+    "version": "ऐप संस्करण"
+  },
+  "onboarding": {
+    "welcome": "प्रणनादी",
+    "tagline": "फसल रोग निदानकर्ता",
+    "subtitle": "कुछ ही सेकंड में ऑफलाइन फसल रोगों का निदान करें।",
+    "languageTitle": "भाषा चुनें",
+    "permissionsTitle": "कैमरा एक्सेस",
+    "permissionsSub": "फसल की पत्तियों की फोटो के लिए आवश्यक। फोटो आपके डिवाइस पर ही रहती हैं।",
+    "grantPermission": "कैमरा एक्सेस दें",
+    "cropTitle": "आपकी मुख्य फसल",
+    "cropSub": "वैकल्पिक — परिणाम फ़िल्टर करने में मदद",
+    "skip": "छोड़ें",
+    "next": "अगला",
+    "getStarted": "शुरू करें"
+  },
+  "crops": {
+    "tomato": "टमाटर",
+    "rice": "धान",
+    "wheat": "गेहूँ",
+    "maize": "मक्का",
+    "cotton": "कपास",
+    "potato": "आलू",
+    "chilli": "मिर्च",
+    "groundnut": "मूँगफली",
+    "sugarcane": "गन्ना",
+    "general": "सामान्य / अन्य"
+  },
+  "severity": {
+    "low": "कम",
+    "moderate": "मध्यम",
+    "severe": "गंभीर"
+  },
+  "modelStage": {
+    "fast": "फास्ट मॉडल",
+    "accurate": "सटीक मॉडल",
+    "mock": "डेमो मोड"
+  },
+  "common": {
+    "cancel": "रद्द करें",
+    "delete": "हटाएँ",
+    "close": "बंद करें",
+    "loading": "लोड हो रहा है…",
+    "error": "कुछ गलत हुआ",
+    "retry": "पुनः प्रयास",
+    "offline": "आप ऑफलाइन हैं",
+    "offlineSub": "इस सुविधा के लिए इंटरनेट चाहिए"
+  },
+  "outbreak": {
+    "nearbyTitle": "पास के प्रकोप",
+    "empty": "कोई पास का प्रकोप नहीं मिला",
+    "emptySub": "जब अन्य PranNadi उपयोगकर्ता पास हों, तो प्रकोप स्वतः साझा होते हैं",
+    "hopsAway": "{{count}} हॉप दूर",
+    "justNow": "अभी",
+    "minutesAgo": "{{count}} मिनट पहले"
+  },
+  "ndvi": {
+    "fieldVigor": "खेत की शक्ति",
+    "normal": "सामान्य",
+    "watch": "ध्यान से देखें",
+    "declining": "घट रहा है",
+    "lastUpdated": "अपडेट {{time}}",
+    "fetchFailed": "डेटा नहीं मिला — ऑनलाइन होने पर पुनः प्रयास"
+  }
+}

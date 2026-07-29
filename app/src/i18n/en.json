@@ -1,0 +1,125 @@
+{
+  "tabs": {
+    "scan": "Scan",
+    "history": "History",
+    "remedies": "Remedies",
+    "settings": "Settings"
+  },
+  "scan": {
+    "title": "Scan Crop",
+    "subtitle": "Point at a diseased leaf and tap capture",
+    "capture": "Capture",
+    "gallery": "Gallery",
+    "analyzing": "Analyzing…",
+    "noPlant": "No plant detected",
+    "noPlantSub": "Please photograph a crop leaf clearly"
+  },
+  "result": {
+    "title": "Diagnosis",
+    "confidence": "Confidence",
+    "severity": "Severity",
+    "whyThis": "Why this diagnosis",
+    "remedy": "View Remedy",
+    "disclaimer": "Consult your local agricultural officer before acting on high-cost treatments.",
+    "modelUsed": "Model used",
+    "scanAgain": "Scan Again",
+    "listen": "Listen"
+  },
+  "remedy": {
+    "symptoms": "Symptoms",
+    "steps": "Remedy Steps",
+    "prevention": "Preventive Tips",
+    "severity": "Severity if untreated"
+  },
+  "history": {
+    "title": "Scan History",
+    "empty": "No scans yet",
+    "emptySub": "Capture a photo to start diagnosing",
+    "search": "Search diseases…",
+    "filter": "Filter",
+    "allCrops": "All Crops",
+    "allSeverity": "All Severity"
+  },
+  "remedies": {
+    "title": "Remedy Library",
+    "search": "Search diseases or crops…",
+    "allCrops": "All Crops"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "modelInfo": "Model Information",
+    "modelVersion": "Model Version",
+    "dataVersion": "Data Version",
+    "communitySync": "Community Sync",
+    "communitySyncSub": "Share anonymized scans to help improve the model",
+    "fieldLocation": "Field Location",
+    "fieldLocationSub": "Used for satellite field monitoring",
+    "setLocation": "Set Location",
+    "about": "About",
+    "version": "App Version"
+  },
+  "onboarding": {
+    "welcome": "PranNadi",
+    "tagline": "Crop Disease Diagnostician",
+    "subtitle": "Diagnose crop diseases offline, in seconds.",
+    "languageTitle": "Choose Language",
+    "permissionsTitle": "Camera Access",
+    "permissionsSub": "Required to photograph crop leaves for diagnosis. Photos stay on your device.",
+    "grantPermission": "Grant Camera Access",
+    "cropTitle": "Your Primary Crop",
+    "cropSub": "Optional — helps filter results",
+    "skip": "Skip",
+    "next": "Next",
+    "getStarted": "Get Started"
+  },
+  "crops": {
+    "tomato": "Tomato",
+    "rice": "Rice",
+    "wheat": "Wheat",
+    "maize": "Maize",
+    "cotton": "Cotton",
+    "potato": "Potato",
+    "chilli": "Chilli",
+    "groundnut": "Groundnut",
+    "sugarcane": "Sugarcane",
+    "general": "General / Other"
+  },
+  "severity": {
+    "low": "Low",
+    "moderate": "Moderate",
+    "severe": "Severe"
+  },
+  "modelStage": {
+    "fast": "Fast Model",
+    "accurate": "Accurate Model",
+    "mock": "Demo Mode"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "close": "Close",
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "offline": "You're offline",
+    "offlineSub": "This feature requires internet access"
+  },
+  "outbreak": {
+    "nearbyTitle": "Nearby Outbreaks",
+    "empty": "No nearby outbreaks detected",
+    "emptySub": "Outbreaks are shared automatically via Bluetooth when other PranNadi users are nearby",
+    "hopsAway": "{{count}} hop away",
+    "hopsAway_plural": "{{count}} hops away",
+    "justNow": "Just now",
+    "minutesAgo": "{{count}}m ago"
+  },
+  "ndvi": {
+    "fieldVigor": "Field Vigor",
+    "normal": "Normal",
+    "watch": "Watch Closely",
+    "declining": "Declining",
+    "lastUpdated": "Updated {{time}}",
+    "fetchFailed": "Could not fetch — will retry when online"
+  }
+}

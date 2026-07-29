@@ -1,0 +1,289 @@
+{
+  "tomato_early_blight": {
+    "id": "tomato_early_blight",
+    "cropType": "tomato",
+    "name": "Tomato Early Blight",
+    "symptoms": [
+      "Dark brown circular spots with concentric rings (target-board pattern) on lower leaves",
+      "Yellow halo surrounding the brown lesions",
+      "Lesions merge causing large blighted areas; severely affected leaves turn yellow and drop",
+      "Stem lesions appear as dark, slightly sunken areas near soil line in seedlings (collar rot)"
+    ],
+    "severityDefault": "moderate",
+    "explanation": "The distinctive concentric ring pattern on older leaves is the key visual cue — it mimics a target or bull's-eye, caused by the fungus Alternaria solani expanding outward as it kills host tissue. Infections typically start on the most mature (lowest) leaves, which is another diagnostic indicator.",
+    "remedy": {
+      "steps": [
+        "Remove and destroy all visibly infected leaves immediately — do not compost them",
+        "Apply neem oil spray (2% concentration — 20ml per litre of water with a few drops of liquid soap as emulsifier) every 7–10 days, starting before symptoms are widespread",
+        "Alternatively, spray copper-based Bordeaux mixture (1% concentration) as an organic fungicide",
+        "Mulch around the base of plants to prevent soil splash, which spreads fungal spores upward",
+        "Water at the base of the plant (drip or furrow), not overhead, to keep foliage dry"
+      ],
+      "preventiveTips": [
+        "Use certified disease-free seeds or resistant varieties (e.g., Arka Rakshak, Arka Samrat)",
+        "Follow crop rotation — do not grow tomato, potato, or other Solanaceae in the same plot for at least 2–3 seasons",
+        "Maintain adequate plant spacing (45–60 cm) for air circulation to reduce humidity around leaves",
+        "Apply potassium-rich fertilizer to strengthen plant cell walls against fungal penetration",
+        "Scout fields weekly from transplanting; early intervention prevents rapid spread"
+      ]
+    }
+  },
+  "tomato_late_blight": {
+    "id": "tomato_late_blight",
+    "cropType": "tomato",
+    "name": "Tomato Late Blight",
+    "symptoms": [
+      "Pale green to brown water-soaked patches on leaf margins and tips, rapidly darkening",
+      "White cottony mold visible on leaf undersides in humid conditions (early morning)",
+      "Stem turns dark brown/black; infected fruit shows firm, brown, greasy-looking lesions",
+      "Entire plant can collapse within days in warm, wet weather"
+    ],
+    "severityDefault": "severe",
+    "explanation": "Late blight (Phytophthora infestans) progresses far faster than early blight — the water-soaked, greasy appearance of lesions and white sporulation on the leaf underside distinguish it. It requires wet, cool conditions (15–22°C) to spread, and a single infected plant can devastate a field rapidly.",
+    "remedy": {
+      "steps": [
+        "Act immediately — late blight spreads extremely rapidly; delay of 24–48 hours can mean losing an entire field",
+        "Remove and bag (do not compost) all heavily infected plants or branches; dispose away from the field",
+        "Apply copper hydroxide or copper oxychloride spray (0.3% — 3g per litre) covering both leaf surfaces thoroughly",
+        "Spray Trichoderma viride biological fungicide (4–5g per litre) as an organic alternative or supplement",
+        "Repeat sprays every 5–7 days while wet conditions persist"
+      ],
+      "preventiveTips": [
+        "Plant resistant varieties — check with your local KVK for varieties suited to your region",
+        "Avoid overhead irrigation; use drip irrigation to keep foliage dry",
+        "Ensure good air drainage — avoid low-lying, poorly ventilated plots for tomato cultivation",
+        "Scout daily during monsoon season and after cool, rainy spells when risk is highest",
+        "Do not store seed from infected plants"
+      ]
+    }
+  },
+  "rice_blast": {
+    "id": "rice_blast",
+    "cropType": "rice",
+    "name": "Rice Blast",
+    "symptoms": [
+      "Diamond or eye-shaped lesions with grey centres and brown borders on leaves",
+      "Neck rot — dark brown discolouration at the base of the panicle causing 'dead heart' or empty grains",
+      "Lesions may be pale grey with dark borders on susceptible varieties; smaller reddish-brown on resistant varieties",
+      "Severely infected seedlings die completely (seedling blight stage)"
+    ],
+    "severityDefault": "severe",
+    "explanation": "The diamond-shaped ('eye-shaped') lesion with a grey centre is the classic diagnostic feature of rice blast (Magnaporthe oryzae). Neck blast — infection at the panicle base — is the most economically destructive stage because it causes total grain loss even when leaves appear relatively healthy.",
+    "remedy": {
+      "steps": [
+        "Spray Pseudomonas fluorescens biological agent (10g per litre) as a preventive and early curative measure",
+        "Apply Trichoderma harzianum (5g per litre) as a soil drench around roots at transplanting and tillering",
+        "For foliar treatment, spray neem seed kernel extract (NSKE) at 5% concentration every 10 days",
+        "Remove and bury infected stubble after harvest — do not leave on field surface",
+        "Drain and dry fields periodically (intermittent drainage) to reduce humidity near the canopy"
+      ],
+      "preventiveTips": [
+        "Use blast-resistant varieties certified by your state agricultural university for your agro-climatic zone",
+        "Treat seeds with Trichoderma viride (4g per kg seed) before sowing",
+        "Avoid excess nitrogen application — high nitrogen makes plants lush and more susceptible to blast",
+        "Maintain optimum plant spacing to improve air circulation",
+        "Monitor fields weekly, especially during flowering which is the most vulnerable stage for neck blast"
+      ]
+    }
+  },
+  "wheat_stem_rust": {
+    "id": "wheat_stem_rust",
+    "cropType": "wheat",
+    "name": "Wheat Stem Rust",
+    "symptoms": [
+      "Reddish-brown to brick-red oval pustules (uredinia) on stems and leaf sheaths, easily rubbing off as rust powder",
+      "Pustules can also appear on leaf blades and glumes",
+      "Infected tissue collapses; severe infections cause lodging (stems fall over) and shrivelled grains",
+      "Black pustules (telia) appear at crop maturity — dark sooty streaks on stems and sheaths"
+    ],
+    "severityDefault": "severe",
+    "explanation": "The brick-red, powder-releasing pustules on the stem are unmistakable — rust-coloured powder rubbing onto your finger confirms Puccinia graminis infection. Stem rust spreads very rapidly via airborne spores and can cause 70–100% yield loss in susceptible varieties if conditions are favourable (warm, humid weather 15–25°C).",
+    "remedy": {
+      "steps": [
+        "If detected early, apply sulphur-based wettable powder (80% WP, 2g per litre) as an organic-compatible fungicide spray",
+        "Spray neem oil (3ml per litre) as a supplementary treatment — repeat every 7 days",
+        "Destroy heavily infected crop residues after harvest by deep burial or burning (check local regulations on burning)",
+        "Report confirmed Ug99 or new-race detections to the nearest KVK or state agricultural department immediately"
+      ],
+      "preventiveTips": [
+        "Grow certified rust-resistant varieties — this is the single most effective preventive measure",
+        "Sow on the recommended date for your region — delayed sowing increases rust risk",
+        "Avoid excessive nitrogen application which promotes lush, susceptible growth",
+        "Remove volunteer wheat plants and alternative hosts (barberry, Berberis spp.) near fields",
+        "Monitor fields from booting stage onward when rust risk peaks"
+      ]
+    }
+  },
+  "maize_northern_leaf_blight": {
+    "id": "maize_northern_leaf_blight",
+    "cropType": "maize",
+    "name": "Maize Northern Leaf Blight",
+    "symptoms": [
+      "Long (5–15 cm), cigar-shaped greyish-green to tan lesions with wavy, irregular margins on leaves",
+      "Lesions typically start on lower leaves and progress upward",
+      "Under humid conditions, dark grey-green sporulation visible in the lesion centre",
+      "Severe infections cause leaves to appear completely blighted and scorched"
+    ],
+    "severityDefault": "moderate",
+    "explanation": "The elongated, cigar-shaped lesion is the key identifier for Northern Leaf Blight (Exserohilum turcicum). Unlike other leaf diseases that cause circular or angular spots, NLB lesions run parallel to the leaf veins and can reach 15 cm in length. Losses are highest when infection reaches the ear leaf before tasseling.",
+    "remedy": {
+      "steps": [
+        "Spray neem oil (2% concentration) every 10 days from first symptom appearance",
+        "Apply Trichoderma viride biological agent (5g per litre) as foliar spray",
+        "Remove and destroy heavily infected lower leaves to slow upward spread",
+        "Avoid overhead irrigation; use furrow or drip irrigation"
+      ],
+      "preventiveTips": [
+        "Plant resistant hybrids — consult your seed supplier for NLB-resistant varieties suited to your region",
+        "Practice crop rotation — maize-legume rotation breaks the disease cycle",
+        "Plough under crop residues after harvest to reduce inoculum for the next season",
+        "Ensure adequate plant spacing for air circulation",
+        "Avoid water stress which weakens plant defenses"
+      ]
+    }
+  },
+  "cotton_leaf_curl": {
+    "id": "cotton_leaf_curl",
+    "cropType": "cotton",
+    "name": "Cotton Leaf Curl Disease",
+    "symptoms": [
+      "Upward or downward curling and cupping of leaves — the most distinctive symptom",
+      "Thickened veins and leaf veins turning dark green or purple (vein swelling)",
+      "Small leaf-like outgrowths (enations) on the underside of leaves",
+      "Stunted plant growth; severe infections prevent boll formation"
+    ],
+    "severityDefault": "severe",
+    "explanation": "Cotton Leaf Curl is caused by a Begomovirus transmitted by whitefly (Bemisia tabaci). The upward curling of leaves with thickened veins and enations on the underside is unmistakable. Unlike fungal diseases, this is viral — there is no chemical cure; management focuses entirely on controlling the whitefly vector and removing infected plants.",
+    "remedy": {
+      "steps": [
+        "Remove and destroy severely infected plants immediately to reduce the viral reservoir",
+        "Control whitefly population using yellow sticky traps (1 trap per 25 plants)",
+        "Spray neem oil (5ml per litre) every 7 days to repel and reduce whitefly numbers",
+        "Apply reflective mulch (silver/aluminium) between rows — whiteflies avoid reflected light",
+        "Spray soap solution (5g liquid soap per litre) on leaf undersides where whiteflies congregate"
+      ],
+      "preventiveTips": [
+        "Use certified CLCuD-tolerant varieties — check with your KVK for recommended varieties",
+        "Avoid planting near fields with previous CLCuD infection history",
+        "Plant maize or sorghum border crops — they act as windbreaks reducing whitefly migration",
+        "Plant on recommended dates — avoid early or late sowing which coincides with peak whitefly populations",
+        "Do not leave infected crop debris in the field after harvest"
+      ]
+    }
+  },
+  "potato_late_blight": {
+    "id": "potato_late_blight",
+    "cropType": "potato",
+    "name": "Potato Late Blight",
+    "symptoms": [
+      "Pale green water-soaked patches on leaf tips and margins turning dark brown rapidly",
+      "White sporulation on the underside of infected leaves in cool, humid mornings",
+      "Infected tubers show brown, firm, dry rot extending inward from the skin",
+      "Entire foliage can collapse within 3–7 days in cool, wet weather"
+    ],
+    "severityDefault": "severe",
+    "explanation": "Potato late blight (Phytophthora infestans — the same pathogen as tomato late blight) famously caused the Irish Famine. The white mold visible on leaf undersides in humid conditions is diagnostic. Tuber infection is particularly damaging because infected tubers continue to rot in storage.",
+    "remedy": {
+      "steps": [
+        "Act within 24 hours of first symptom appearance — late blight is one of the fastest-spreading plant diseases",
+        "Remove and destroy infected foliage; hill up soil around plants to protect tubers from spores washing down",
+        "Spray copper oxychloride (0.3%) or Bordeaux mixture (1%) covering all leaf surfaces",
+        "Apply Trichoderma-based biological fungicide as a soil drench to protect tubers",
+        "Stop irrigating immediately — withhold water to reduce humidity"
+      ],
+      "preventiveTips": [
+        "Use certified disease-free seed tubers — never plant tubers from a diseased field",
+        "Plant resistant varieties appropriate for your region",
+        "Store seed tubers in well-ventilated, cool, dry conditions before planting",
+        "Avoid overcast, rainy season planting if possible",
+        "Scout fields daily during cool, cloudy weather — this is when late blight strikes"
+      ]
+    }
+  },
+  "chilli_anthracnose": {
+    "id": "chilli_anthracnose",
+    "cropType": "chilli",
+    "name": "Chilli Anthracnose (Fruit Rot)",
+    "symptoms": [
+      "Circular, sunken, water-soaked lesions on ripening and ripe fruit — often tan or brown with orange-pink spore masses in the centre",
+      "Infected fruit shrivels, darkens, and mummifies on the plant",
+      "Leaf and stem lesions are less common but appear as dark, slightly sunken spots",
+      "Post-harvest fruit rot continues in storage"
+    ],
+    "severityDefault": "moderate",
+    "explanation": "Anthracnose (Colletotrichum spp.) primarily attacks ripening fruit — the sunken, water-soaked lesion with salmon-pink spore masses in the centre is the defining feature. The disease can cause 50–80% post-harvest losses if harvested fruit carries latent infection. Hot, humid conditions favour rapid spread.",
+    "remedy": {
+      "steps": [
+        "Harvest fruit promptly at the right maturity — overripe fruit is most susceptible",
+        "Remove and destroy mummified infected fruit on the plant and on the ground",
+        "Spray neem oil (2%) or copper-based fungicide every 10 days during fruit development",
+        "Apply Trichoderma viride as a soil drench to reduce soilborne inoculum",
+        "Handle harvested fruit carefully — wounds are entry points for the pathogen"
+      ],
+      "preventiveTips": [
+        "Use certified disease-free seeds; treat seeds with hot water (50°C for 30 minutes) before sowing",
+        "Practice crop rotation — avoid chilli after chilli",
+        "Maintain plant spacing for good air circulation to reduce humidity",
+        "Avoid overhead irrigation especially during fruiting stage",
+        "Store harvested fruit in cool, well-ventilated conditions immediately after harvest"
+      ]
+    }
+  },
+  "groundnut_early_leaf_spot": {
+    "id": "groundnut_early_leaf_spot",
+    "cropType": "groundnut",
+    "name": "Groundnut Early Leaf Spot",
+    "symptoms": [
+      "Circular, dark brown spots (3–10 mm) with yellow halos on the upper leaf surface",
+      "Spots appear darker brown on upper surface, lighter on lower surface (distinguishes it from late leaf spot which is darker below)",
+      "Spots start on older leaves and progress upward",
+      "Severe defoliation begins from lower leaves in heavy infections"
+    ],
+    "severityDefault": "moderate",
+    "explanation": "Early leaf spot (Cercospora arachidicola) is distinguished from late leaf spot by the darker colour of lesions on the upper leaf surface compared to the lower surface. The yellow halo around the lesion is more pronounced than in late leaf spot. Losses of 50% are possible in susceptible varieties with no management.",
+    "remedy": {
+      "steps": [
+        "Spray neem leaf extract (5% — boil and strain 500g neem leaves per 10 litres water) every 10–14 days",
+        "Apply sulphur dust or wettable sulphur spray (2g per litre) as an organic fungicide option",
+        "Remove and bury or compost infected fallen leaves",
+        "Spray Trichoderma viride (5g per litre) as a biological management option"
+      ],
+      "preventiveTips": [
+        "Grow resistant varieties — consult your local KVK for varieties adapted to your region",
+        "Treat seeds with Trichoderma viride (4g per kg) before sowing",
+        "Avoid plant stress through timely irrigation, especially during pod filling",
+        "Practice crop rotation — cereals or pulses make good rotational crops",
+        "Scout fields from 30 days after sowing — early intervention matters"
+      ]
+    }
+  },
+  "sugarcane_red_rot": {
+    "id": "sugarcane_red_rot",
+    "cropType": "sugarcane",
+    "name": "Sugarcane Red Rot",
+    "symptoms": [
+      "Leaves of the top shoot (crown leaves) wither and dry from the tip downward",
+      "Cutting the stalk longitudinally reveals reddish discolouration of internal tissue with white patches at intervals — the most diagnostic feature",
+      "A sour, alcoholic smell from infected stalks due to fermentation of sugar content",
+      "Infected stools die prematurely; gaps visible in the field"
+    ],
+    "severityDefault": "severe",
+    "explanation": "Red rot (Colletotrichum falcatum) is the most destructive sugarcane disease in India. The internal red discolouration with white spots inside the stalk is pathognomonic — no other disease causes this exact pattern. The alcoholic smell from infected cane is another reliable on-field indicator. Disease spreads through infected seed sets and waterlogging.",
+    "remedy": {
+      "steps": [
+        "Rogue out and remove all infected stools immediately — uproot completely, do not just cut",
+        "Drench the soil around removed plants with copper oxychloride solution (0.3%) to reduce soilborne spread",
+        "Treat remaining healthy plants with Trichoderma viride soil drench",
+        "Improve field drainage immediately — waterlogging greatly accelerates spread",
+        "Do not use infected stalks as seed material under any circumstances"
+      ],
+      "preventiveTips": [
+        "Use certified disease-free seed sets from healthy stools",
+        "Treat seed sets before planting: soak in Carbendazim (0.1%) or Trichoderma viride solution for 30 minutes",
+        "Plant resistant/tolerant varieties — Co 86032, CoC 671, Co 0238 are known for better tolerance in many regions",
+        "Ensure good field drainage — avoid low-lying waterlogged plots for sugarcane",
+        "Avoid using cutting tools between healthy and potentially infected fields without cleaning/disinfecting"
+      ]
+    }
+  }
+}
