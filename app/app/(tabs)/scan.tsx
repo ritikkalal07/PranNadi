@@ -25,6 +25,7 @@ import { CaptureButton } from '../../src/components/scan/CaptureButton';
 import { useScanStore } from '../../src/store/useScanStore';
 import { useAppStore } from '../../src/store/useAppStore';
 import { diagnose } from '../../src/services/inference.service';
+import { useDiseaseClassifier } from '../../src/ml/useDiseaseClassifier';
 
 export default function ScanScreen() {
   const { t } = useTranslation();
@@ -36,6 +37,7 @@ export default function ScanScreen() {
   const selectedCrop = useAppStore(s => s.selectedCrop);
   const language = useAppStore(s => s.language);
   const { setCapturing, setInferring, setResult, setError } = useScanStore();
+  const { classify } = useDiseaseClassifier();
 
   const handleCapture = async () => {
     if (isAnalyzing) return;
@@ -54,7 +56,7 @@ export default function ScanScreen() {
       setInferring();
 
       // Run inference
-      const result = await diagnose(photo.uri, selectedCrop ?? 'general', language);
+      const result = await diagnose(photo.uri, selectedCrop ?? 'general', language, classify);
       setResult(result);
 
       // Navigate to result
@@ -83,7 +85,7 @@ export default function ScanScreen() {
     setInferring();
 
     try {
-      const result = await diagnose(uri, selectedCrop ?? 'general', language);
+      const result = await diagnose(uri, selectedCrop ?? 'general', language, classify);
       setResult(result);
       router.push(`/result/${result.timestamp}`);
     } catch (err: any) {

@@ -7,12 +7,10 @@ import { getDatabase } from '../data/db/seed';
 import type { Disease, Remedy, RemedyWithDisease, Locale, CropType } from '../data/types';
 import remediesEn from '../data/remedies/remedies.en.json';
 import remediesHi from '../data/remedies/remedies.hi.json';
-import remediesGu from '../data/remedies/remedies.gu.json';
 
 const localizedData: Record<string, Record<string, any>> = {
   en: remediesEn,
   hi: remediesHi,
-  gu: remediesGu,
 };
 
 function parseJsonField<T>(raw: string, fallback: T): T {

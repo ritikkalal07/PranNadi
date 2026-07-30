@@ -50,21 +50,18 @@ function getMockResult(cropType?: CropType): ClassificationResult {
   };
 }
 
-// ─── Real TFLite inference (uncomment when model files are available) ─────────
-
-/*
+// ─── Real TFLite inference ──────────────────────────────────────────────
 import { useTensorflowModel } from 'react-native-fast-tflite';
 
-const fastModelAsset = require('./models/fast-classifier.tflite');
-const accurateModelAsset = require('./models/accurate-classifier.tflite');
-*/
+const modelAsset = require('../../assets/model.tflite');
 
 // ─── Hook ─────────────────────────────────────────────────────────────────────
 
 export function useDiseaseClassifier() {
+  const model = useTensorflowModel(modelAsset, []);
+
   /**
    * Run classification on a preprocessed tensor buffer.
-   * In mock mode, returns a deterministic result for UI development.
    *
    * @param tensorBuffer - Float32Array, normalized image tensor
    * @param cropType - Optional crop type hint (for future use)
@@ -74,51 +71,53 @@ export function useDiseaseClassifier() {
       tensorBuffer: Float32Array | null,
       cropType?: CropType
     ): Promise<ClassificationResult> => {
-      // ── Mock path (model files not present) ──────────────────────────────
-      // TODO: Replace this block with real TFLite inference when models ship
-      if (tensorBuffer === null || __DEV__) {
-        // Simulate inference latency so UI animations look realistic
-        await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 400));
+      // If tensor is missing or model isn't loaded yet, return mock
+      if (tensorBuffer === null || !model.model) {
         return getMockResult(cropType);
       }
 
       // ── Real inference path ───────────────────────────────────────────────
-      // This is the production path. Uncomment + integrate react-native-fast-tflite here.
-      //
-      // const fastModel = useTensorflowModel(fastModelAsset);
-      // const fastOutput = await fastModel.run([tensorBuffer]);
-      // const fastConfidence = Math.max(...fastOutput[0]);
-      // const fastClassIndex = fastOutput[0].indexOf(fastConfidence);
-      //
-      // if (fastClassIndex === NOT_A_PLANT_CLASS_INDEX) {
-      //   return { diseaseId: 'not_a_plant', confidence: fastConfidence,
-      //            modelStage: 'fast', modelVersion: MODEL_VERSIONS.fast,
-      //            isLowConfidence: false, isRejected: true };
-      // }
-      //
-      // if (fastConfidence >= FAST_MODEL_CONFIDENCE_THRESHOLD) {
-      //   const diseaseId = (labels as Record<string, string>)[String(fastClassIndex)];
-      //   return { diseaseId, confidence: fastConfidence,
-      //            modelStage: 'fast', modelVersion: MODEL_VERSIONS.fast,
-      //            isLowConfidence: false, isRejected: false };
-      // }
-      //
-      // // Fall through to accurate model
-      // const accurateModel = useTensorflowModel(accurateModelAsset);
-      // const accurateOutput = await accurateModel.run([tensorBuffer]);
-      // const accurateConfidence = Math.max(...accurateOutput[0]);
-      // const accurateClassIndex = accurateOutput[0].indexOf(accurateConfidence);
-      // const diseaseId = (labels as Record<string, string>)[String(accurateClassIndex)];
-      //
-      // return { diseaseId, confidence: accurateConfidence,
-      //          modelStage: 'accurate', modelVersion: MODEL_VERSIONS.accurate,
-      //          isLowConfidence: accurateConfidence < ACCURATE_MODEL_LOW_CONFIDENCE_THRESHOLD,
-      //          isRejected: accurateClassIndex === NOT_A_PLANT_CLASS_INDEX };
+      try {
+        const output = await model.model.run([tensorBuffer.buffer as ArrayBuffer]);
+        // Fast-tflite output is an ArrayBuffer. We know the model returns Float32 predictions.
+        const predictions = new Float32Array(output[0]);
+        let maxConfidence = -1;
+        let maxIndex = 0;
+        
+        for (let i = 0; i < predictions.length; i++) {
+          if (predictions[i] > maxConfidence) {
+            maxConfidence = predictions[i];
+            maxIndex = i;
+          }
+        }
 
-      // Fallback for now
-      return getMockResult(cropType);
+        if (maxIndex === NOT_A_PLANT_CLASS_INDEX) {
+          return {
+            diseaseId: 'not_a_plant',
+            confidence: maxConfidence,
+            modelStage: 'accurate',
+            modelVersion: MODEL_VERSIONS.accurate,
+            isLowConfidence: false,
+            isRejected: true
+          };
+        }
+
+        const diseaseId = (labels as Record<string, string>)[String(maxIndex)] || 'tomato_early_blight';
+
+        return {
+          diseaseId,
+          confidence: maxConfidence,
+          modelStage: 'accurate',
+          modelVersion: MODEL_VERSIONS.accurate,
+          isLowConfidence: maxConfidence < ACCURATE_MODEL_LOW_CONFIDENCE_THRESHOLD,
+          isRejected: false
+        };
+      } catch (error) {
+        console.error('TFLite inference error:', error);
+        return getMockResult(cropType);
+      }
     },
-    []
+    [model.model]
   );
 
   return { classify };

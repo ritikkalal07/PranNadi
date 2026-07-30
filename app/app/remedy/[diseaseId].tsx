@@ -33,6 +33,10 @@ export default function RemedyDetailScreen() {
     getRemedyForDisease(diseaseId, language)
       .then(setData)
       .finally(() => setLoading(false));
+      
+    return () => {
+      Speech.stop();
+    };
   }, [diseaseId, language]);
 
   const handleListen = () => {

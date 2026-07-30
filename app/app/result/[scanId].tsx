@@ -56,6 +56,10 @@ export default function ResultScreen() {
         })
         .finally(() => setLoading(false));
     }
+    
+    return () => {
+      Speech.stop();
+    };
   }, [scanId]);
 
   const handleViewRemedy = () => {

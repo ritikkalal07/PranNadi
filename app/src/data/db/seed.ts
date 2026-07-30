@@ -9,7 +9,6 @@ import * as SQLite from 'expo-sqlite';
 import { ALL_SCHEMA_STATEMENTS, SCHEMA_VERSION } from './schema';
 import remediesEn from '../remedies/remedies.en.json';
 import remediesHi from '../remedies/remedies.hi.json';
-import remediesGu from '../remedies/remedies.gu.json';
 
 let db: SQLite.SQLiteDatabase | null = null;
 
@@ -27,27 +26,45 @@ export async function initializeDatabase(): Promise<void> {
   
   const database = await getDatabase();
 
-  // Create all tables
-  for (const statement of ALL_SCHEMA_STATEMENTS) {
-    await database.execAsync(statement);
-  }
+  // Create settings table first so we can read the version
+  await database.execAsync(`
+    CREATE TABLE IF NOT EXISTS settings (
+      key TEXT PRIMARY KEY,
+      value TEXT NOT NULL
+    );
+  `);
 
-  // Check if already seeded
+  // Check if already seeded at current version
   const versionRow = await database.getFirstAsync<{ value: string }>(
     'SELECT value FROM settings WHERE key = ?',
     ['db_version']
   );
 
-  if (versionRow && parseInt(versionRow.value, 10) >= SCHEMA_VERSION) {
+  const currentVersion = versionRow ? parseInt(versionRow.value, 10) : 0;
+
+  if (currentVersion >= SCHEMA_VERSION) {
     // Already seeded at this version
     return;
+  }
+
+  if (currentVersion > 0 && currentVersion < SCHEMA_VERSION) {
+    // Drop existing tables for fresh schema seed
+    await database.execAsync(`
+      DROP TABLE IF EXISTS scans;
+      DROP TABLE IF EXISTS remedies;
+      DROP TABLE IF EXISTS diseases;
+    `);
+  }
+
+  // Create all tables
+  for (const statement of ALL_SCHEMA_STATEMENTS) {
+    await database.execAsync(statement);
   }
 
   // Seed diseases + remedies from bundled JSON
   await seedDiseases(database);
   await seedRemedies(database, remediesEn, 'en');
   await seedRemedies(database, remediesHi, 'hi');
-  await seedRemedies(database, remediesGu, 'gu');
 
   // Mark as seeded
   await database.runAsync(

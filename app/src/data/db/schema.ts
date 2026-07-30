@@ -20,7 +20,7 @@ export const CREATE_REMEDIES_TABLE = `
     disease_id TEXT NOT NULL REFERENCES diseases(id),
     steps TEXT NOT NULL,
     preventive_tips TEXT NOT NULL,
-    locale TEXT NOT NULL CHECK(locale IN ('en', 'hi', 'gu'))
+    locale TEXT NOT NULL CHECK(locale IN ('en', 'hi'))
   );
 `;
 
@@ -53,4 +53,4 @@ export const ALL_SCHEMA_STATEMENTS = [
 ] as const;
 
 /** Current schema version — increment when schema changes */
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;

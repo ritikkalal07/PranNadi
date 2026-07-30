@@ -34,7 +34,6 @@ type Step = 'language' | 'permissions' | 'crop';
 const LANGUAGES: Array<{ key: Locale; label: string }> = [
   { key: 'en', label: 'English' },
   { key: 'hi', label: 'हिन्दी' },
-  { key: 'gu', label: 'ગુજરાતી' },
 ];
 
 const CROPS: Array<{ key: CropType; emoji: string }> = [

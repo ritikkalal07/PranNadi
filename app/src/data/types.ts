@@ -10,7 +10,7 @@ export type Severity = 'low' | 'moderate' | 'severe';
 
 export type ModelStage = 'fast' | 'accurate' | 'mock';
 
-export type Locale = 'en' | 'hi' | 'gu';
+export type Locale = 'en' | 'hi';
 
 export type CropType =
   | 'tomato'

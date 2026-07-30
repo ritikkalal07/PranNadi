@@ -32,14 +32,13 @@ async function persistImage(tempUri: string): Promise<string> {
 export async function diagnose(
   imageUri: string,
   cropType: CropType = 'general',
-  locale: Locale = 'en'
+  locale: Locale = 'en',
+  classify: (tensorBuffer: Float32Array | null, cropType?: CropType) => Promise<any>
 ): Promise<DiagnosisResult> {
   // 1. Preprocess image
   const preprocessed = await preprocessImage(imageUri);
 
-  // 2. Run classifier (hook is stateless so we instantiate classifier manually here)
-  // In production component usage, consume useDiseaseClassifier hook directly in the screen
-  const { classify } = createClassifier();
+  // 2. Run classifier (using the hook provided by the component)
   const classResult = await classify(preprocessed?.tensor ?? null, cropType);
 
   // 3. Look up remedy from local DB
@@ -78,29 +77,4 @@ export async function diagnose(
   });
 
   return result;
-}
-
-/** Lightweight adapter to call classify() outside of React component context */
-function createClassifier() {
-  let mockIndex = 0;
-  const MOCK_RESULTS = [
-    { diseaseId: 'tomato_early_blight', confidence: 0.89 },
-    { diseaseId: 'rice_blast', confidence: 0.92 },
-    { diseaseId: 'wheat_stem_rust', confidence: 0.76 },
-  ];
-
-  return {
-    classify: async (tensor: Float32Array | null, cropType?: CropType) => {
-      await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 400));
-      const mock = MOCK_RESULTS[mockIndex++ % MOCK_RESULTS.length];
-      return {
-        diseaseId: mock.diseaseId,
-        confidence: mock.confidence,
-        modelStage: 'mock' as const,
-        modelVersion: '0.1.0-mock',
-        isLowConfidence: false,
-        isRejected: false,
-      };
-    },
-  };
 }

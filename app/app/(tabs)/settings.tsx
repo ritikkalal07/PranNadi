@@ -19,8 +19,7 @@ import type { Locale } from '../../src/data/types';
 
 const LANGUAGES: Array<{ key: Locale; label: string; nativeLabel: string }> = [
   { key: 'en', label: 'English', nativeLabel: 'English' },
-  { key: 'hi', label: 'Hindi', nativeLabel: 'हिन्दी' },
-  { key: 'gu', label: 'Gujarati', nativeLabel: 'ગુજરાતી' },
+  { key: 'hi', label: 'Hindi', nativeLabel: 'हिंदी' },
 ];
 
 function SettingRow({ icon, title, subtitle, children }: {
