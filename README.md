@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌿 PranNadi — Crop Disease Diagnostician
+# 🌿 PranNadi - Crop Disease Diagnostician
 
 **Diagnose crop diseases offline, in seconds.**
 
