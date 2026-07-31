@@ -3,13 +3,13 @@
  * Accessible from result and remedy library.
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import * as Speech from 'expo-speech';
-import { ArrowLeft, Volume2, CheckCircle, Shield, Leaf } from 'lucide-react-native';
+import { ArrowLeft, Volume2, VolumeX, CheckCircle, Shield, Leaf } from 'lucide-react-native';
 import { Colors } from '../../src/design-system/colors';
 import { FontFamily, FontSize, TextStyles } from '../../src/design-system/typography';
 import { Spacing, Radius, Layout } from '../../src/design-system/spacing';
@@ -27,6 +27,7 @@ export default function RemedyDetailScreen() {
   const language = useAppStore(s => s.language);
   const [data, setData] = useState<RemedyWithDisease | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   useEffect(() => {
     if (!diseaseId) return;
@@ -36,18 +37,35 @@ export default function RemedyDetailScreen() {
       
     return () => {
       Speech.stop();
+      setIsSpeaking(false);
     };
   }, [diseaseId, language]);
 
-  const handleListen = () => {
+  const handleListen = useCallback(async () => {
     if (!data) return;
+    
+    // Check if currently speaking
+    const speaking = await Speech.isSpeakingAsync();
+    if (speaking || isSpeaking) {
+      Speech.stop();
+      setIsSpeaking(false);
+      return;
+    }
+
     const text = [
       data.disease.name,
       t('remedy.symptoms') + ': ' + data.disease.symptoms.join('. '),
       t('remedy.steps') + ': ' + data.remedy.steps.join('. '),
     ].join('. ');
-    Speech.speak(text, { language });
-  };
+    
+    setIsSpeaking(true);
+    Speech.speak(text, {
+      language,
+      onDone: () => setIsSpeaking(false),
+      onStopped: () => setIsSpeaking(false),
+      onError: () => setIsSpeaking(false),
+    });
+  }, [data, language, isSpeaking, t]);
 
   if (loading) {
     return (
@@ -77,8 +95,12 @@ export default function RemedyDetailScreen() {
           <ArrowLeft size={22} color={Colors.text.primary} strokeWidth={1.5} />
         </TouchableOpacity>
         <Text style={styles.headerLabel} numberOfLines={1}>{disease.name}</Text>
-        <TouchableOpacity testID="listen-button" onPress={handleListen} style={styles.listenBtn}>
-          <Volume2 size={20} color={Colors.brand.primary} strokeWidth={1.5} />
+        <TouchableOpacity testID="listen-button" onPress={handleListen} style={[styles.listenBtn, isSpeaking && styles.listenBtnActive]}>
+          {isSpeaking ? (
+            <VolumeX size={20} color={Colors.status.severe} strokeWidth={1.5} />
+          ) : (
+            <Volume2 size={20} color={Colors.brand.primary} strokeWidth={1.5} />
+          )}
         </TouchableOpacity>
       </View>
 
@@ -174,6 +196,11 @@ const styles = StyleSheet.create({
     color: Colors.text.primary,
   },
   listenBtn: { padding: Spacing[1] },
+  listenBtnActive: {
+    backgroundColor: Colors.status.severeLight,
+    borderRadius: Radius.full,
+    padding: Spacing[2],
+  },
   content: {
     padding: Layout.screenPaddingHorizontal,
     gap: Spacing[4],

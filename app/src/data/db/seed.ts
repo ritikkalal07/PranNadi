@@ -19,11 +19,6 @@ export async function getDatabase(): Promise<SQLite.SQLiteDatabase> {
 }
 
 export async function initializeDatabase(): Promise<void> {
-  if (Platform.OS === 'web') {
-    console.log('[Root] Skipping SQLite init on Web');
-    return;
-  }
-  
   const database = await getDatabase();
 
   // Create settings table first so we can read the version

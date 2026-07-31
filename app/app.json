@@ -27,7 +27,8 @@
         "android.permission.BLUETOOTH",
         "android.permission.BLUETOOTH_SCAN",
         "android.permission.BLUETOOTH_CONNECT",
-        "android.permission.BLUETOOTH_ADVERTISE"
+        "android.permission.BLUETOOTH_ADVERTISE",
+        "android.permission.RECORD_AUDIO"
       ],
       "package": "com.prannadi.app"
     },
@@ -54,10 +55,26 @@
         {
           "photosPermission": "PranNadi can import photos from your gallery for disease diagnosis."
         }
-      ]
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableProguardInReleaseBuilds": true,
+            "enableShrinkResourcesInReleaseBuilds": true
+          }
+        }
+      ],
+      "./plugins/withSplitApks.js"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "73c43b47-99dc-49ac-a3b0-98802c53b399"
+      }
     }
   }
 }

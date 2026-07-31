@@ -30,6 +30,6 @@ export const NOT_A_PLANT_CLASS_INDEX = 10;
  * Update these when shipping new .tflite files.
  */
 export const MODEL_VERSIONS = {
-  fast: '0.1.0-mock',       // Replace with real version when real model is shipped
-  accurate: '0.1.0-mock',   // Replace with real version when real model is shipped
+  fast: '1.0.0-tflite',       
+  accurate: '1.0.0-tflite',   
 } as const;

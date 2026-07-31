@@ -53,4 +53,4 @@ export const ALL_SCHEMA_STATEMENTS = [
 ] as const;
 
 /** Current schema version — increment when schema changes */
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 3;

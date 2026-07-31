@@ -3,7 +3,7 @@
  * Deep-linkable from history: /result/[scanId]
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -28,6 +28,7 @@ export default function ResultScreen() {
   const storeResult = useScanStore(s => s.result);
   const [result, setResult] = useState<DiagnosisResult | null>(storeResult);
   const [loading, setLoading] = useState(!storeResult);
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   useEffect(() => {
     if (storeResult) {
@@ -59,23 +60,42 @@ export default function ResultScreen() {
     
     return () => {
       Speech.stop();
+      setIsSpeaking(false);
     };
   }, [scanId]);
 
   const handleViewRemedy = () => {
     if (!result) return;
+    Speech.stop();
+    setIsSpeaking(false);
     router.push(`/remedy/${result.diseaseId}`);
   };
 
   const handleScanAgain = () => {
+    Speech.stop();
+    setIsSpeaking(false);
     router.replace('/(tabs)/scan');
   };
 
-  const handleListen = () => {
+  const handleListen = useCallback(async () => {
     if (!result) return;
+    
+    const speaking = await Speech.isSpeakingAsync();
+    if (speaking || isSpeaking) {
+      Speech.stop();
+      setIsSpeaking(false);
+      return;
+    }
+
     const text = `${result.diseaseName}. ${t('result.confidence')}: ${Math.round(result.confidence * 100)} percent. ${result.remedy.disease.explanation}`;
-    Speech.speak(text, { language });
-  };
+    setIsSpeaking(true);
+    Speech.speak(text, {
+      language,
+      onDone: () => setIsSpeaking(false),
+      onStopped: () => setIsSpeaking(false),
+      onError: () => setIsSpeaking(false),
+    });
+  }, [result, language, isSpeaking, t]);
 
   if (loading || !result) {
     return (
@@ -92,15 +112,6 @@ export default function ResultScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Background image (blurred) */}
-      {result && (
-        <Image
-          source={{ uri: result.remedy?.disease?.explanation ? undefined : undefined }}
-          style={StyleSheet.absoluteFill}
-          blurRadius={20}
-        />
-      )}
-
       {/* Dark overlay */}
       <View style={[StyleSheet.absoluteFill, styles.overlay]} />
 
@@ -111,6 +122,7 @@ export default function ResultScreen() {
           onViewRemedy={handleViewRemedy}
           onScanAgain={handleScanAgain}
           onListen={handleListen}
+          isSpeaking={isSpeaking}
         />
       </View>
     </View>

@@ -9,6 +9,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -19,7 +20,6 @@ import Animated, {
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
-import { Leaf, ChevronRight } from 'lucide-react-native';
 import i18n from '../../src/i18n';
 import { Colors } from '../../src/design-system/colors';
 import { FontFamily, FontSize, TextStyles } from '../../src/design-system/typography';
@@ -37,12 +37,24 @@ const LANGUAGES: Array<{ key: Locale; label: string }> = [
 ];
 
 const CROPS: Array<{ key: CropType; emoji: string }> = [
+  { key: 'apple', emoji: '🍎' },
+  { key: 'blueberry', emoji: '🫐' },
+  { key: 'cherry', emoji: '🍒' },
+  { key: 'grape', emoji: '🍇' },
+  { key: 'maize', emoji: '🌽' },
+  { key: 'orange', emoji: '🍊' },
+  { key: 'peach', emoji: '🍑' },
+  { key: 'pepper', emoji: '🫑' },
+  { key: 'potato', emoji: '🥔' },
+  { key: 'raspberry', emoji: '🍓' },
+  { key: 'soybean', emoji: '🫘' },
+  { key: 'squash', emoji: '🎃' },
+  { key: 'strawberry', emoji: '🍓' },
   { key: 'tomato', emoji: '🍅' },
+  // Existing App Crops
   { key: 'rice', emoji: '🌾' },
   { key: 'wheat', emoji: '🌿' },
-  { key: 'maize', emoji: '🌽' },
   { key: 'cotton', emoji: '☁️' },
-  { key: 'potato', emoji: '🥔' },
   { key: 'chilli', emoji: '🌶️' },
   { key: 'groundnut', emoji: '🥜' },
   { key: 'sugarcane', emoji: '🎋' },
@@ -171,7 +183,7 @@ export default function OnboardingScreen() {
       {/* Hero */}
       <View style={styles.hero}>
         <View style={styles.logoWrap}>
-          <Leaf size={40} color={Colors.bg.surface} strokeWidth={1.5} />
+          <Image source={require('../../assets/icon.png')} style={styles.logo} />
         </View>
         <Text style={styles.appName}>{t('onboarding.welcome')}</Text>
         <Text style={styles.tagline}>{t('onboarding.tagline')}</Text>
@@ -209,10 +221,15 @@ const styles = StyleSheet.create({
     width: 72,
     height: 72,
     borderRadius: 36,
-    backgroundColor: 'rgba(255,255,255,0.15)',
+    backgroundColor: Colors.bg.surface,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: Spacing[2],
+    overflow: 'hidden',
+  },
+  logo: {
+    width: 72,
+    height: 72,
   },
   appName: {
     fontFamily: FontFamily.heading.bold,
@@ -298,3 +315,4 @@ const styles = StyleSheet.create({
   },
   cropLabelSelected: { color: Colors.brand.primary },
 });
+

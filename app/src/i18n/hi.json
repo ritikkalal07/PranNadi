@@ -1,5 +1,24 @@
 {
+  "greeting": {
+    "morning": "शुभ प्रभात",
+    "afternoon": "शुभ दोपहर",
+    "evening": "शुभ संध्या"
+  },
+  "home": {
+    "farmer": "किसान",
+    "subtitle": "आइए आज आपकी फसलों को स्वस्थ रखें।",
+    "activeCrop": "सक्रिय फसल",
+    "monitoringActive": "निगरानी सक्रिय",
+    "change": "बदलें",
+    "quickActions": "त्वरित कार्रवाइयां",
+    "newScan": "नया स्कैन",
+    "viewHistory": "इतिहास देखें",
+    "localAlerts": "स्थानीय अलर्ट",
+    "blightWarning": "झुलसा चेतावनी",
+    "blightDesc": "हाल की नमी के कारण आपके क्षेत्र में झुलसा रोग (blight) का उच्च जोखिम बताया गया है।"
+  },
   "tabs": {
+    "home": "होम",
     "scan": "स्कैन",
     "history": "इतिहास",
     "remedies": "उपचार",
@@ -74,14 +93,25 @@
     "getStarted": "शुरू करें"
   },
   "crops": {
+    "apple": "सेब",
+    "blueberry": "ब्लूबेरी",
+    "cherry": "चेरी",
+    "grape": "अंगूर",
+    "orange": "संतरा",
+    "peach": "आड़ू",
+    "pepper": "शिमला मिर्च",
+    "raspberry": "रसभरी",
+    "soybean": "सोयाबीन",
+    "squash": "कद्दू / स्क्वैश",
+    "strawberry": "स्ट्रॉबेरी",
     "tomato": "टमाटर",
-    "rice": "धान",
+    "rice": "चावल",
     "wheat": "गेहूँ",
     "maize": "मक्का",
     "cotton": "कपास",
     "potato": "आलू",
     "chilli": "मिर्च",
-    "groundnut": "मूँगफली",
+    "groundnut": "मूंगफली",
     "sugarcane": "गन्ना",
     "general": "सामान्य / अन्य"
   },

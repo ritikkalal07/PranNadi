@@ -13,12 +13,25 @@ export type ModelStage = 'fast' | 'accurate' | 'mock';
 export type Locale = 'en' | 'hi';
 
 export type CropType =
+  // PlantVillage Supported Crops
+  | 'apple'
+  | 'blueberry'
+  | 'cherry'
+  | 'maize' // (Corn)
+  | 'grape'
+  | 'orange'
+  | 'peach'
+  | 'pepper' // (Bell Pepper / Chilli)
+  | 'potato'
+  | 'raspberry'
+  | 'soybean'
+  | 'squash'
+  | 'strawberry'
   | 'tomato'
+  // Existing App Crops (Fallback support)
   | 'rice'
   | 'wheat'
-  | 'maize'
   | 'cotton'
-  | 'potato'
   | 'chilli'
   | 'groundnut'
   | 'sugarcane'

@@ -1,5 +1,24 @@
 {
+  "greeting": {
+    "morning": "Good Morning",
+    "afternoon": "Good Afternoon",
+    "evening": "Good Evening"
+  },
+  "home": {
+    "farmer": "Farmer",
+    "subtitle": "Let's keep your crops healthy today.",
+    "activeCrop": "Active Crop",
+    "monitoringActive": "Monitoring active",
+    "change": "Change",
+    "quickActions": "Quick Actions",
+    "newScan": "New Scan",
+    "viewHistory": "View History",
+    "localAlerts": "Local Alerts",
+    "blightWarning": "Blight Warning",
+    "blightDesc": "High risk of blight reported in your area due to recent humidity."
+  },
   "tabs": {
+    "home": "Home",
     "scan": "Scan",
     "history": "History",
     "remedies": "Remedies",
@@ -74,6 +93,17 @@
     "getStarted": "Get Started"
   },
   "crops": {
+    "apple": "Apple",
+    "blueberry": "Blueberry",
+    "cherry": "Cherry",
+    "grape": "Grape",
+    "orange": "Orange",
+    "peach": "Peach",
+    "pepper": "Pepper",
+    "raspberry": "Raspberry",
+    "soybean": "Soybean",
+    "squash": "Squash",
+    "strawberry": "Strawberry",
     "tomato": "Tomato",
     "rice": "Rice",
     "wheat": "Wheat",

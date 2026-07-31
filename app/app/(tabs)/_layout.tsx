@@ -3,9 +3,10 @@
  */
 
 import React from 'react';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { Scan, History, BookOpen, Settings } from 'lucide-react-native';
+import { Home, Scan, History, BookOpen, Settings } from 'lucide-react-native';
 import { Colors } from '../../src/design-system/colors';
 import { FontFamily, FontSize } from '../../src/design-system/typography';
 import { Layout } from '../../src/design-system/spacing';
@@ -32,11 +33,11 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="scan"
+        name="index"
         options={{
-          title: t('tabs.scan'),
+          title: t('tabs.home'),
           tabBarIcon: ({ color, size }) => (
-            <Scan size={size} color={color} strokeWidth={1.5} />
+            <Home size={size} color={color} strokeWidth={1.5} />
           ),
         }}
       />
@@ -46,6 +47,33 @@ export default function TabLayout() {
           title: t('tabs.history'),
           tabBarIcon: ({ color, size }) => (
             <History size={size} color={color} strokeWidth={1.5} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="scan"
+        options={{
+          title: t('tabs.scan'),
+          tabBarLabel: () => null,
+          tabBarIcon: ({ color, size }) => (
+            <View
+              style={{
+                width: 64,
+                height: 64,
+                borderRadius: 32,
+                backgroundColor: Colors.brand.primary,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: -32,
+                shadowColor: Colors.brand.primary,
+                shadowOffset: { width: 0, height: 4 },
+                shadowOpacity: 0.3,
+                shadowRadius: 8,
+                elevation: 5,
+              }}
+            >
+              <Scan size={32} color={Colors.bg.surface} strokeWidth={2} />
+            </View>
           ),
         }}
       />

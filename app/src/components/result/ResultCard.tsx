@@ -27,9 +27,10 @@ interface ResultCardProps {
   onViewRemedy: () => void;
   onScanAgain: () => void;
   onListen: () => void;
+  isSpeaking?: boolean;
 }
 
-export function ResultCard({ result, onViewRemedy, onScanAgain, onListen }: ResultCardProps) {
+export function ResultCard({ result, onViewRemedy, onScanAgain, onListen, isSpeaking = false }: ResultCardProps) {
   const { t } = useTranslation();
 
   const translateY = useSharedValue(120);
@@ -109,9 +110,9 @@ export function ResultCard({ result, onViewRemedy, onScanAgain, onListen }: Resu
           />
           <View style={styles.secondaryActions}>
             <Button
-              label={t('result.listen')}
+              label={isSpeaking ? '⏹ Stop' : t('result.listen')}
               onPress={onListen}
-              variant="secondary"
+              variant={isSpeaking ? 'ghost' : 'secondary'}
               size="md"
               style={styles.flex1}
               testID="listen-button"

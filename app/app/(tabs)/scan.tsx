@@ -108,7 +108,18 @@ export default function ScanScreen() {
             onPress={requestPermission}
             variant="primary"
             size="lg"
+            fullWidth
           />
+          <View style={{ marginTop: 24, width: '100%', alignItems: 'center' }}>
+            <Text style={[styles.permissionSub, { marginBottom: 16 }]}>Or</Text>
+            <Button
+              label={t('scan.gallery')}
+              onPress={handleGallery}
+              variant="secondary"
+              size="lg"
+              fullWidth
+            />
+          </View>
         </View>
       </SafeAreaView>
     );
@@ -119,68 +130,68 @@ export default function ScanScreen() {
       {/* Camera */}
       <ExpoCameraView
         ref={cameraRef}
-        style={styles.camera}
+        style={StyleSheet.absoluteFillObject}
         facing="back"
         flash="off"
-      >
-        {/* Scan frame overlay */}
-        <View style={styles.frameOverlay}>
-          <View style={styles.corner_tl} />
-          <View style={styles.corner_tr} />
-          <View style={styles.corner_bl} />
-          <View style={styles.corner_br} />
+      />
+
+      {/* Header */}
+      <SafeAreaView edges={['top']} style={styles.headerWrapper} pointerEvents="box-none">
+        <View style={styles.header} pointerEvents="none">
+          <Text style={styles.headerTitle}>{t('scan.title')}</Text>
+          <Text style={styles.headerSub}>{t('scan.subtitle')}</Text>
         </View>
-
-        {/* Analyzing indicator */}
-        {isAnalyzing && (
-          <View style={styles.analyzingBanner}>
-            <Zap size={16} color={Colors.brand.primary} strokeWidth={2} />
-            <Text style={styles.analyzingText}>{t('scan.analyzing')}</Text>
+        
+        {/* NDVI & Outbreak Mini Widgets (Mocked for Expo Go) */}
+        <View style={styles.widgetsContainer} pointerEvents="none">
+          <View style={styles.widgetCard}>
+            <Text style={styles.widgetTitle}>Field NDVI</Text>
+            <Text style={styles.widgetValue}>0.76 (Healthy)</Text>
           </View>
-        )}
-
-        {/* Header */}
-        <SafeAreaView edges={['top']} style={styles.headerWrapper}>
-          <View style={styles.header}>
-            <Text style={styles.headerTitle}>{t('scan.title')}</Text>
-            <Text style={styles.headerSub}>{t('scan.subtitle')}</Text>
+          <View style={styles.widgetCard}>
+            <Text style={styles.widgetTitle}>Local Alerts</Text>
+            <Text style={styles.widgetValueAlert}>2 Blight cases</Text>
           </View>
-          
-          {/* NDVI & Outbreak Mini Widgets (Mocked for Expo Go) */}
-          <View style={styles.widgetsContainer}>
-            <View style={styles.widgetCard}>
-              <Text style={styles.widgetTitle}>Field NDVI</Text>
-              <Text style={styles.widgetValue}>0.76 (Healthy)</Text>
-            </View>
-            <View style={styles.widgetCard}>
-              <Text style={styles.widgetTitle}>Local Alerts</Text>
-              <Text style={styles.widgetValueAlert}>2 Blight cases</Text>
-            </View>
-          </View>
-        </SafeAreaView>
+        </View>
+      </SafeAreaView>
 
-        {/* Controls */}
-        <SafeAreaView edges={['bottom']} style={styles.controlsWrapper}>
-          <View style={styles.controls}>
-            {/* Gallery button */}
-            <TouchableOpacity
-              testID="gallery-button"
-              onPress={handleGallery}
-              style={styles.sideButton}
-              disabled={isAnalyzing}
-            >
-              <ImageIcon size={24} color={Colors.bg.surface} strokeWidth={1.5} />
-              <Text style={styles.sideButtonLabel}>{t('scan.gallery')}</Text>
-            </TouchableOpacity>
+      {/* Scan frame overlay */}
+      <View style={styles.frameOverlay} pointerEvents="none">
+        <View style={styles.corner_tl} />
+        <View style={styles.corner_tr} />
+        <View style={styles.corner_bl} />
+        <View style={styles.corner_br} />
+      </View>
 
-            {/* Capture button */}
-            <CaptureButton onPress={handleCapture} disabled={isAnalyzing} />
+      {/* Analyzing indicator */}
+      {isAnalyzing && (
+        <View style={styles.analyzingBanner} pointerEvents="none">
+          <Zap size={16} color={Colors.brand.primary} strokeWidth={2} />
+          <Text style={styles.analyzingText}>{t('scan.analyzing')}</Text>
+        </View>
+      )}
 
-            {/* Spacer */}
-            <View style={styles.sideButton} />
-          </View>
-        </SafeAreaView>
-      </ExpoCameraView>
+      {/* Controls */}
+      <SafeAreaView edges={['bottom']} style={styles.controlsWrapper} pointerEvents="box-none">
+        <View style={styles.controls} pointerEvents="box-none">
+          {/* Gallery button */}
+          <TouchableOpacity
+            testID="gallery-button"
+            onPress={handleGallery}
+            style={styles.sideButton}
+            disabled={isAnalyzing}
+          >
+            <ImageIcon size={24} color={Colors.bg.surface} strokeWidth={1.5} />
+            <Text style={styles.sideButtonLabel}>{t('scan.gallery')}</Text>
+          </TouchableOpacity>
+
+          {/* Capture button */}
+          <CaptureButton onPress={handleCapture} disabled={isAnalyzing} />
+
+          {/* Spacer */}
+          <View style={styles.sideButton} pointerEvents="none" />
+        </View>
+      </SafeAreaView>
     </View>
   );
 }

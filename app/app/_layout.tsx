@@ -17,7 +17,7 @@ import {
   Sora_700Bold,
 } from '@expo-google-fonts/sora';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import '../src/i18n';
+import i18n from '../src/i18n';
 import { initializeDatabase } from '../src/data/db/seed';
 import { useAppStore } from '../src/store/useAppStore';
 import { Colors } from '../src/design-system/colors';
@@ -33,6 +33,10 @@ export default function RootLayout() {
     Sora_600SemiBold,
     Sora_700Bold,
   });
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language]);
 
   useEffect(() => {
     initializeDatabase()
