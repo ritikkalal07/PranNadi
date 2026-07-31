@@ -5,7 +5,6 @@
 **Diagnose crop diseases offline, in seconds.**
 
 An AI-powered mobile app that identifies 38+ crop diseases from a single leaf photo - no internet required. Built for Indian farmers, available in English & Hindi.
-
 [![Download APK](https://img.shields.io/badge/Download-APK-brightgreen?style=for-the-badge&logo=android)](https://drive.google.com)
 [![React Native](https://img.shields.io/badge/React_Native-0.76-blue?style=flat-square&logo=react)](https://reactnative.dev)
 [![Expo](https://img.shields.io/badge/Expo-SDK_53-white?style=flat-square&logo=expo)](https://expo.dev)
