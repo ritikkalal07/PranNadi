@@ -4,7 +4,7 @@
 
 **Diagnose crop diseases offline, in seconds.**
 
-An AI-powered mobile app that identifies 38+ crop diseases from a single leaf photo — no internet required. Built for Indian farmers, available in English & Hindi.
+An AI-powered mobile app that identifies 38+ crop diseases from a single leaf photo - no internet required. Built for Indian farmers, available in English & Hindi.
 
 [![Download APK](https://img.shields.io/badge/Download-APK-brightgreen?style=for-the-badge&logo=android)](https://drive.google.com)
 [![React Native](https://img.shields.io/badge/React_Native-0.76-blue?style=flat-square&logo=react)](https://reactnative.dev)
@@ -63,11 +63,11 @@ An AI-powered mobile app that identifies 38+ crop diseases from a single leaf ph
 | Feature | Description |
 |---|---|
 | 🤖 **AI-Powered Diagnosis** | On-device TFLite MobileNetV2 model trained on 87,000+ images across 38 disease classes |
-| 📴 **100% Offline** | No internet required — works in remote farmlands |
-| 🌍 **Bilingual** | Full English & Hindi support — all UI, remedies, and alerts translate instantly |
+| 📴 **100% Offline** | No internet required - works in remote farmlands |
+| 🌍 **Bilingual** | Full English & Hindi support - all UI, remedies, and alerts translate instantly |
 | 📷 **Camera & Gallery** | Scan live using camera or pick from photo gallery |
 | 💊 **Remedy Library** | Detailed symptoms, step-by-step treatment, and preventive tips for every disease |
-| 🔊 **Text-to-Speech** | Listen to remedy instructions — great for low-literacy users |
+| 🔊 **Text-to-Speech** | Listen to remedy instructions - great for low-literacy users |
 | 📊 **Scan History** | Track all past diagnoses with thumbnails, confidence scores, and dates |
 | ⚡ **Tiny APK** | ~20 MB per-architecture APK thanks to ABI splits and ProGuard |
 | 🎨 **Premium UI** | Elegant glassmorphism cards, smooth animations, and a floating Scan FAB |
@@ -192,7 +192,7 @@ Contributions are welcome! Please open an issue or submit a PR.
 
 ## 📄 License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -200,6 +200,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 **Made with 💚 for Indian farmers**
 
-*PranNadi — प्राणनाड़ी — The pulse of life*
+*PranNadi - प्राणनाड़ी - The pulse of life*
 
 </div>
