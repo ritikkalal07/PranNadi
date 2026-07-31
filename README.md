@@ -16,15 +16,13 @@ An AI-powered mobile app that identifies 38+ crop diseases from a single leaf ph
 
 ---
 
-## 📲 Download the App
-
-Scan the QR code below to download the latest APK from Google Drive:
+## 📲 Scan & Download
 
 <div align="center">
 
-<img src="app/assets/menu/qr-code.png" alt="Download QR Code" width="250"/>
+<img src="app/assets/menu/qr-code.png" alt="Scan & Download QR Code" width="250"/>
 
-**[📥 Download APK from Google Drive](https://drive.google.com)**
+**Scan the QR code above to download the app from Google Drive**
 
 </div>
 
